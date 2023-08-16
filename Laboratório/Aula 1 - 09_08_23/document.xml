@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:pPr><w:pStyle w:val="code"/></w:pPr><w:r><w:t><![CDATA[%% Modeloamento de um motor elétrico de imã permanente
+%Fazendo a função de transferência do motor(Velocidade angular/Tensão de
+%entrada
+
+%Definicação de Parâmetros
+Km = 0.06; %N.m/A
+J = 80.45*10^-6; %micro.Kg/m^2
+Co = 0.06; %V/s
+Ra = 2.5; %Ohm
+La = 75*10^-3; %mili.H
+
+%Função de Transferência Velocidade angular/Tensão de entrada
+numerador1 = [Km];
+denomindador1 = [(La*J), (Ra*J), (Co*Km)];
+sistema1=tf(numerador1,denomindador1);
+
+degrau1 = step(10*sistema1);
+
+%Função de Transferência Posição Angular/Tensão de entrada
+numerador2 = [Km];
+denomindador2 = [(La*J), (Ra*J), (Co*Km),(0)]
+sistema2 = tf(numerador2,denomindador2)
+degrau2 = step(10*sistema2);
+
+figure()
+step(10*sistema1)
+figure()
+step(10*sistema2)
+]]></w:t></w:r></w:p></w:body></w:document>
