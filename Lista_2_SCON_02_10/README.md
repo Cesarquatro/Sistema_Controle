@@ -6,7 +6,11 @@
    e
    
    q(s) = s + 2.
-
+   
+```matlab
+p = [1 7 10];
+q = [1 2];
+```
 ### Calcule o seguinte:
 
 * (a) p(s)q(s)
