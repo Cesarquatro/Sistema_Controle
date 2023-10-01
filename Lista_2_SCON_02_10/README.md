@@ -162,5 +162,5 @@ sys =
   s^2 + 4 s + 3  
 Continuous-time transfer function.  
 ```
-<img align="center" alt="ex2" width="800" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex3.png?raw=true"/>
+<img align="center" alt="ex2" width="900" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex3.png?raw=true"/>
 
