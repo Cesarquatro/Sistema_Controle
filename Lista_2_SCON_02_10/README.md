@@ -164,3 +164,40 @@ Continuous-time transfer function.
 ```
 <img align="center" alt="ex2" width="900" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex3.png?raw=true"/>
 
+## Ex 4
+### Considere o sistema mecânico descrito na figura abaixo. A entrada é dada
+### por f(t) e a saída é y(t). Determine a função transferência de f(t) para
+### y(t) e, plote um gráfico da resposta do sistema a uma entrada em degrau
+### unitário. Seja m = 10k, k = 1 e b = 0.5. Mostre que a amplitude máxima da
+### saída esta em torno de 1.8
+
+<img align="center" alt="ex4" width="500" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex4.png?raw=true"/>
+   
+```matlab
+k = 1;
+b = 5e-1;
+m = 10 * k;
+
+num = 1/m;
+den = [1 b/m k/m];
+
+Hs = tf(num, den)
+
+t = 0:0.01:400;
+
+amplitude = step(Hs, t);
+
+figure(1)
+plot(t, amplitude, 'LineWidth', 2)
+grid on
+```
+Saída:
+```bash
+Hs = 
+         0.1
+  ------------------
+  s^2 + 0.05 s + 0.1
+Continuous-time transfer function.  
+```
+<img align="center" alt="ex4" width="900" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex4_step_response.png?raw=true"/>
+
