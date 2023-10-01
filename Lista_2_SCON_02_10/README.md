@@ -52,7 +52,7 @@ q = [1 2];
   zeros =  
       -2
   ```
-  * (c) p(-1)
+* (c) p(-1)
   ```Matlab
   c = polyval(p, -1)
   ```
