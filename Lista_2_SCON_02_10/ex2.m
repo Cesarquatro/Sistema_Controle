@@ -10,11 +10,11 @@ controlador = tf(num1, den1)
 num2 = [1 2];
 den2 = [1 3];
 planta = tf(num2, den2)
-disp('----------------------------')
+disp('-----------------------------------')
 
 %% (a) Calcule a função transferência em malha
 % fechada usando as funções series e feedback.
-disp('(b)')
+disp('(a)')
 Serie = series(controlador, planta)
 Feedback = feedback(Serie, 1)
 
