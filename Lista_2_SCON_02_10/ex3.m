@@ -23,9 +23,9 @@ plot(t, yt, '--', 'Color', 'c', 'LineWidth', 2)
 
 grid on;
 
-title('Verificação');
-xlabel('Tempo [s]');
-ylabel('Amplitude');
+title('Verificação','FontSize',20);
+xlabel('Tempo [s]', 'FontSize',15);
+ylabel('Amplitude','FontSize',15);
 legend('Resposta do sistema ao degrau unitário u(t)', ...
     'Solução y(t) obtida analiticamente', ...
-    'Location','southeast')
+    'Location','southeast', 'FontSize',15)
