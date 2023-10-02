@@ -354,3 +354,126 @@ Continuous-time transfer function.
   ```
   <img align="center" alt="ex4" width="900" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex5_step_response_c.png?raw=true"/>
   ### Percebe-se que quanto maior o Momento de Inércia (J), maior a amplitude e o tempo para alcançar a estabilidade.
+## Ex 6
+### Considere o diagrama de blocos da figura abaixo.
+
+<img align="center" alt="ex4" width="500" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex6.png?raw=true"/>
+   
+```matlab
+num1 = 1;
+dem1 = [1 1];
+sys1 = tf(num1, dem1)
+
+num2 = [1 0];
+dem2 = [1 0 2];
+sys2 = tf(num2, dem2)
+
+num3 = 1;
+dem3 = [1 0 0];
+sys3 = tf(num3, dem3)
+
+num4 = [4 2];
+dem4 = [1 2 1];
+sys4 = tf(num4, dem4)
+
+num5 = [1 0 2];
+dem5 = [1 0 0 14];
+sys5 = tf(num5, dem5)
+```
+Saída:
+```bash
+sys1 = 
+    1
+  -----
+  s + 1 
+Continuous-time transfer function.
+
+sys2 = 
+     s
+  -------
+  s^2 + 2 
+Continuous-time transfer function.
+
+sys3 = 
+   1
+  ---
+  s^2 
+Continuous-time transfer function.
+
+sys4 = 
+     4 s + 2
+  -------------
+  s^2 + 2 s + 1 
+Continuous-time transfer function.
+
+sys5 = 
+  s^2 + 2
+  --------
+  s^3 + 14 
+Continuous-time transfer function.
+```
+* (a) Use uma sequência de instruções para reduzir o diagrama de blocos na figura e calcule a função tranferência em malha fechada
+  ```Matlab
+  % I
+  Serie1 = series(sys1, sys2);
+  Feedback1 = feedback(sys3, 50);
+  
+  % II
+  Feedback2 = feedback(Serie1, sys4);
+  
+  % III
+  Serie2 = series(Feedback2, Feedback1);
+  
+  % IV
+  Feedback3 = feedback(Serie2, sys5);
+  
+  % V
+  disp('Função tranferência em malha fechada:')
+  Serie3 = series(4, Feedback3)
+  ```
+  Saída:
+  ```bash
+  Função tranferência em malha fechada:
+  Serie3 =   
+                               4 s^6 + 8 s^5 + 4 s^4 + 56 s^3 + 112 s^2 + 56 s
+    -----------------------------------------------------------------------------------------------------
+    s^10 + 3 s^9 + 55 s^8 + 175 s^7 + 300 s^6 + 1323 s^5 + 2656 s^4 + 3715 s^3 + 7732 s^2 + 5602 s + 1400
+  Continuous-time transfer function.
+  ```
+  * (b) Gere um diagrama e polos e zeros da função transferência em malha fechada na forma gráfica usando a função pzmap.
+  ```Matlab
+  figure(1)
+  pzmap(Serie3)
+  grid on
+  ```
+  Saída:
+
+  <img align="center" alt="ex4" width="900" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex6_pzmap.png?raw=true"/>
+* (c) Determine explicitamente os polos e zeros da função transferência em malha fechada usando as funções pole e zero e correlacione os resultados com o diagrama de polos e zeros da parte (b)
+  ```Matlab
+  Polos = pole(Serie3)
+  Zeros = zero(Serie3)
+  ```
+  Saída:
+  ```bash
+  Polos =
+  -0.0002 + 7.0710i
+  -0.0002 - 7.0710i
+   1.2052 + 2.0883i
+   1.2052 - 2.0883i
+   0.1223 + 1.8367i
+   0.1223 - 1.8367i
+  -2.4202 + 0.0000i
+  -2.3077 + 0.0000i
+  -0.4635 + 0.1993i
+  -0.4635 - 0.1993i
+      
+  Zeros =  
+     0.0000 + 0.0000i
+     1.2051 + 2.0872i
+     1.2051 - 2.0872i
+    -2.4101 + 0.0000i
+    -1.0000 + 0.0000i
+    -1.0000 - 0.0000i
+  ```
+  
