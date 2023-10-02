@@ -21,27 +21,28 @@ veiculo_espacial = tf(num2, den2)
 
 %% (a) Desenvolva uma sequência de intruções para calcular a função 
 % transferência em malha fechada T(s) = θ(s) / θd(s).
+disp('-------------------------------')
 disp('(a)')
 
 Serie = series(controlador, veiculo_espacial)
 Feedback = feedback(Serie, 1)
 
-disp('-------------------------------')
 %% (b) Calcule e plote o gráfico da resposta ao degrau para uma entrada 
 % em degrau de 10°.
 
 t = 0:0.1:100;
-figure(2)
+figure(1)
 y = step(10*Feedback, t);
 plot(t, y, 'Color', 'b', 'LineWidth', 1)
-title('resposta ao degrau para uma entrada em degrau de 10°')
+title('Resposta ao degrau para uma entrada em degrau de 10°')
 grid on
-%% (c)O valor exato do momento de inércia é geralmente desconhecido e 
+%% (c) O valor exato do momento de inércia é geralmente desconhecido e 
 % pode mudar lentaente com o tempo. Compare o desempenho da resposta ao
 % degrau do veículo espacial quando J é reduzido de 20% e 50%. Use os
 % parâmetros  do controlado k = 10.8e8, a = 1 e b = 8 e uma entrada de 10°.
 % discuta os resultados.
-
+disp('-------------------------------')
+disp('(c)')
 % J reduzido de 20%
 disp('J é reduzido de 20%:')
 J2 = J*0.8;
@@ -59,7 +60,8 @@ hold on
 grid on
 
 % J reduzido de 50%
-J3 = 0.5*J;
+disp('J é reduzido de 50%:')
+J3 = J*0.5;
 den4 = [J3 0 0];
 veiculo_espacial3 = tf(num2, den4)
 Serie3 = series(controlador, veiculo_espacial3)
