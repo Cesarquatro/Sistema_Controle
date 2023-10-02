@@ -5,6 +5,7 @@ close all; clc; clear;
 %% (a) Calcule a resposta do sistema em malha fechada (isto é, R(s) = 1 / s
 % e Tp(s) = 0) e plote o gráfico do valor em regime permanente da saída
 % Y(s) em função do ganho do controlador 0 < k ≤ 10.
+
 % Controlador
 K = 0.1:0.1:10;
 
