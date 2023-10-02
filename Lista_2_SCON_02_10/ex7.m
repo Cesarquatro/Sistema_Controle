@@ -1,5 +1,5 @@
 close all; clc; clear;
-%% Lista 2 - Ex 6
+%% Lista 2 - Ex 7
 % Para o pêndulo simples mostrado na figura abaixo, a equação linear do
 % movimento é dada por
 % θ''(t) + g / L * sen(θ) = 0 ,
