@@ -606,3 +606,92 @@ legend('Z = 5','Z = 10','Z = 15', 'FontSize', 15, 'Location','southeast')
 Saída
 
 <img align="center" alt="ex4" width="800" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex8_plots.png?raw=true"/>
+
+## Ex 9
+### Considere o sistema de controle com realimentação na figura abaixo
+
+<img align="center" alt="ex4" width="500" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex9.png?raw=true"/>
+
+### em que
+### G(s) = s + 1 / s + 2 e H(s) = 1 / s + 1
+   
+```matlab
+num_G = [1 1];
+den_G = [1 2];
+G = tf(num_G, den_G)
+
+num_H = 1;
+den_H = [1 1];
+H = tf(num_H, den_H)
+```
+Saída:
+```bash
+G = 
+  s + 1
+  -----
+  s + 2 
+Continuous-time transfer function.
+
+H = 
+    1
+  -----
+  s + 1 
+Continuous-time transfer function.
+```
+* (a) Usando uma sequência de intruções, determine a função tranferência em malha fechada.
+  ```Matlab
+  disp('----------------------------')
+  disp('(a)')
+  sys = feedback(G, H, -1)
+  ```
+  Saída:
+  ```bash
+  ----------------------------
+  (a)
+  sys =
+  s^2 + 2 s + 1
+    -------------
+    s^2 + 4 s + 3
+    Continuous-time transfer function.
+  ```
+* (b) Obtenha o diagrama de polos e zeros usando a função pzmap. Onde estão os polos e zeros do sistema em malha fechada?
+  ```Matlab
+  pzmap(sys)
+  grid on
+  ```
+  Saída:
+
+  <img align="center" alt="ex4" width="900" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex9_pzmap.png?raw=true"/>
+  
+* (c) Existe algum cancelamento de polos e zeros? Se existe, use a função minreal para cancelar os polos e zeros em comum na função transferência em uma malha fechada.
+  ```Matlab
+  disp('----------------------------')
+  disp('(c):')
+  nova_funcao_transferencia = minreal(sys)
+  
+  polos = pole(sys)
+  zeros = zero(sys)
+  ```
+  Saída:
+  ```bash
+  ----------------------------
+  (c):  
+  nova_funcao_transferencia =
+    s + 1
+    -----
+    s + 3
+  Continuous-time transfer function.
+
+  polos =   
+      -3
+      -1
+  
+  zeros =
+      -1
+      -1
+  ```
+  Sim, existe o cancelamento de polos e zeros como mostrado na saída anterior. Após o cancelamento a nova ft é s + 1 / s + 3
+
+* (d) Por que é importante cancelar os polos e zeros em comum na função transferência?
+
+  O cancelamento é importante, pois entrega uma nova função transferência, porém esta é simplificada e isso diminui a demanda computacional.
