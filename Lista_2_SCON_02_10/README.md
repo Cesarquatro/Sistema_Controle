@@ -353,3 +353,4 @@ Continuous-time transfer function.
   Continuous-time transfer function.
   ```
   <img align="center" alt="ex4" width="900" src="https://github.com/Cesarquatro/Sistema_Controle/blob/main/Lista_2_SCON_02_10/img/ex5_step_response_c.png?raw=true"/>
+  ### Percebe-se que quanto maior o Momento de Inércia (J), maior a amplitude e o tempo para alcançar a estabilidade.
