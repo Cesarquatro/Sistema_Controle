@@ -1,4 +1,6 @@
 # Lista 2
+## Nome: Cesar Augusto Mendes Cordeiro da Silva
+## RA: 211270121
 ## Ex 1
 ### Considere os dois polinômios
    p(s) = s² + 7s + 10
