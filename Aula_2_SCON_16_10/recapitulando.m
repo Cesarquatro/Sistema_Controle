@@ -34,6 +34,17 @@ rlocfind(sys) % aparece a cruz que mostra onde o polos estão localizados
 % polo (p)
 disp("-------------------------------------------------------------")
 K = 20.5775; num = K * [1 4 3]; den = [1 5 6+K K 0];
-[r, p, K] = residue(num, den)
+[r, p, K] = residue(num, den) % Usado para expansão em frações parciais
+sys = tf(num, den)
+
+figure(3)
+step(sys)
+
+%% Sensibilidade das raízes para uma mudança de 5% de K
+k = 20.5775; den = [1 5 6+K K]; r1 = roots(den);
+dK = 1.0289;
+Km = K + dK; denm = [1 5 6+Km Km]; r2 = roots(denm);
+dr = r1 - r2;
+S = dr / (dK / K);
 
 
