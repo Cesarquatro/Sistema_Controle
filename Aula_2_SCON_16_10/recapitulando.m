@@ -72,8 +72,9 @@ den1 = [1 0];
 controlador = tf(num1, den1)
 
 num2 = 4;
-p = 1;
+p = 1; % p não é 1, coloquei só para não dar erro
 den2 = [1 p];
+disp("% p não é 1, coloquei só para não dar erro")
 
 processo = tf(num2, den2)
 
