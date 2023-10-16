@@ -35,6 +35,9 @@ rlocfind(sys) % aparece a cruz que mostra onde o polos estão localizados
 disp("-------------------------------------------------------------")
 K = 20.5775; num = K * [1 4 3]; den = [1 5 6+K K 0];
 [r, p, K] = residue(num, den) % Usado para expansão em frações parciais
+
+%% respostas ao degrau K = 20.5775 vetor sem aplicação do degrau 
+K = 20.5775; num = K * [1 4 3]; den = [1 5 6+K K];
 sys = tf(num, den)
 
 figure(3)
