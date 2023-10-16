@@ -42,6 +42,11 @@ sys = tf(num, den)
 
 figure(3)
 step(sys)
+% characteristics → peak response: pico
+% characteristics → setting time: mostra onde começa a entrar em regime
+                                % permanente
+% characteristics → rise time: p/sistemas superamortecidos tempo de subida
+% de 0 a 100%
 
 %% Sensibilidade das raízes para uma mudança de 5% de K
 k = 20.5775; den = [1 5 6+K K]; r1 = roots(den);
