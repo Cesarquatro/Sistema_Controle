@@ -49,10 +49,19 @@ step(sys)
 % de 0 a 100%
 
 %% Sensibilidade das raízes para uma mudança de 5% de K
-k = 20.5775; den = [1 5 6+K K]; r1 = roots(den);
+disp("-------------------------------------------------------------")
+k = 20.5775; den = [1 5 6+K K]; r1 = roots(den); % raízes do polinomio den
 dK = 1.0289;
-Km = K + dK; denm = [1 5 6+Km Km]; r2 = roots(denm);
-dr = r1 - r2;
-S = dr / (dK / K);
+Km = K + dK; % variação do ganho K
+denm = [1 5 6+Km Km]; % novo denominador
+r2 = roots(denm); % raízes do novo polinomio denm
+dr = r1 - r2; 
+Sensibilidade = dr / (dK / K) % sensibilidade 
 
+%% E 7.27 ganho para MUP = 5% (K = ?; zeta = ?; raízes??)
+disp("-------------------------------------------------------------")
+num = [1 0];
+den = [1 4 40];
+gsys = tf(num, den);
 
+rlocus(gsys)
