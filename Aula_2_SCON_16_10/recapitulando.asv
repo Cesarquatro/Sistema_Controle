@@ -1,0 +1,23 @@
+close all; clc; clear;
+%% gera a função transferência 
+p = [1 1];
+q = [1 5 6 0];
+
+sys = tf(p,q)
+
+%% gera o lugar geométrico das raízes (os polos buscam os zeros no 
+% infinito)
+rlocus(sys);
+% o → zeros
+% x → polos
+
+% Linhas coloridas são os deslocamento das raízes (polos) conforme a
+% variação do ganho k
+% Quando as raízes se encontram (k = 0.419), é criticamente amortecido
+
+% P/ polos:
+% Duas raízes Subamortecido
+% Raízes iguais Sem amortecimento
+% Sem raízes 
+
+%% gera os vetos 
