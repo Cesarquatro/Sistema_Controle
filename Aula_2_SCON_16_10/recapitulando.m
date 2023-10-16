@@ -60,10 +60,30 @@ r2 = roots(denm); % raízes do novo polinomio denm
 dr = r1 - r2; 
 Sensibilidade = dr / (dK / K) % sensibilidade 
 
-%% E 7.27 ganho para MUP = 5% (K = ?; zeta = ?; raízes??)
+
+%% Exercício
+% 
 disp("-------------------------------------------------------------")
+disp("Exercício")
+
+% para o sistema:
+num1 = [1 10];
+den1 = [1 0];
+controlador = tf(num1, den1)
+
+num2 = 4;
+p = 1;
+den2 = [1 p];
+
+processo = tf(num2, den2)
+
+Serie = series(controlador, processo);
+Feedback = feedback(Serie, -1) % fecha a malha
+
+%% Resposta do E 7.27 ganho para MUP = 5% (K = ?; zeta = ?; raízes??)
+disp("Resposta")
 num = [1 0];
-den = [1 4 40];
-gsys = tf(num, den);
+den = [1 4 10];
+gsys = tf(num, den)
 
 rlocus(gsys)
