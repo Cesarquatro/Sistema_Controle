@@ -34,9 +34,11 @@ rlocfind(sys) % aparece a cruz que mostra onde o polos estão localizados
 % polo (p)
 disp("-------------------------------------------------------------")
 K = 20.5775; num = K * [1 4 3]; den = [1 5 6+K K 0];
-[r, p, K] = residue(num, den) % Usado para expansão em frações parciais
+[r, p, k] = residue(num, den) % Usado para expansão em frações parciais
+disp("k = 0 pois não foi usado nas frações parciais")
 
 %% respostas ao degrau K = 20.5775 vetor sem aplicação do degrau 
+disp("-------------------------------------------------------------")
 K = 20.5775; num = K * [1 4 3]; den = [1 5 6+K K];
 sys = tf(num, den)
 
@@ -50,7 +52,7 @@ step(sys)
 
 %% Sensibilidade das raízes para uma mudança de 5% de K
 disp("-------------------------------------------------------------")
-k = 20.5775; den = [1 5 6+K K]; r1 = roots(den); % raízes do polinomio den
+K = 20.5775; den = [1 5 6+K K]; r1 = roots(den); % raízes do polinomio den
 dK = 1.0289;
 Km = K + dK; % variação do ganho K
 denm = [1 5 6+Km Km]; % novo denominador
