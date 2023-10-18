@@ -7,15 +7,15 @@ close all; clc; clear;
 % de controle em malha fechada com controlador Proporcional-Integral.
 
 Km = 0.06;   % [N.m/A]
-J = 80.45;   % [μ.kg.m²]
+J = 80.45e-6;   % [kg.m²]
 Cphi = 0.06; % [V/s]
 Ra = 2.5;    % [Ω]
-La = 75;     % [mH]
+La = 75e-3;     % [H]
 
 %% Parte A
 % 1) Crie um script ou live script no Matlab e defina um vetor c que varia
 % de 0,1 a 1,0 com passo de 0,1.
-c = 0.1:0.1:1;
+c = 0.1:0.01:1;
 
 % 2) Modele novamente a função transferência de controle de velocidade do 
 % motor CC (Gw(s)) utilizada nas atividades passadas.
@@ -50,8 +50,8 @@ Gw = tf(num, den) % Atividade 6
 % Sobressinal(cont) = Info.Overshoot; 
 % Tempo_ac(cont) = Info.SettlingTime;
 
-kp = 1;
-ki = 5;
+kp = 0.0721;  % da Atividade 6
+ki = 2.9135; % da Atividade 6
 
 num1 = ki;
 den1 = [1 0];
@@ -59,22 +59,22 @@ den1 = [1 0];
 %GPI = kp + tf(num1, den1)
 sys2 = 1;
 
-Sobressinal = zeros(length(c))
-Tempo_ac = zeros(length(c))
+Sobressinal = zeros(1, length(c));
+Tempo_ac = zeros(1, length(c));
 
+figure(1)
 for cont = 1:length(c)
     Gpi = pid(kp,c(cont)*ki,0,0);
     sys1 = Gpi*Gw;
     GmfPI = feedback(sys1,sys2);
-    
-    figure(1)
+  
     step(GmfPI)
 
     hold on;
 
     Info = stepinfo(GmfPI);
-    Sobressinal(cont) = Info.Overshoot; % cont nesse caso é o contador do laço for
-    Tempo_ac(cont) = Info.SettlingTime; % cont nesse caso é o contador do laço for
+    Sobressinal(cont) = Info.Overshoot; 
+    Tempo_ac(cont) = Info.SettlingTime; 
 end
 
 % 4) Após o laço for, utilize a função plot() para obter os gráficos de
@@ -83,3 +83,8 @@ end
 % separadas e não sobrescrever o gráfico com as respostas ao degrau obtido
 % anteriormente.
 
+figure(2)
+plot(c*100, Sobressinal)
+
+figure(3)
+plot(c*100, Tempo_ac)
