@@ -110,7 +110,7 @@ end
 
 %% Valores das variaveis em regime permanente
 
-X = -inv(A-B*K)*B*K*r(1) % \ calcula a matriz inversa
-%U = -K*X+K(1)*r
+X = -inv(A-B*K)*B*K*r(1)  % \ calcula a matriz inversa
+U = -K*X+K(1)*r
 
 
