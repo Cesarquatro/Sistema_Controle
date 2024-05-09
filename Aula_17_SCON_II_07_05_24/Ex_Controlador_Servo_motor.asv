@@ -106,10 +106,11 @@ if plotar == 1
     xlabel("[s]");
     title("i compensado")
     grid on;
+    % Valores das variaveis em regime permanente
     
 
 end
 
-% Valores das variaveis em regime permanente
-    X = -(A-B*K)\B*K*r(1)  % \ calcula a matriz inversa
-    U = -K*X+K(1)
+
+
+
