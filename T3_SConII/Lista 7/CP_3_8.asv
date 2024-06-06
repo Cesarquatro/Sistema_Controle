@@ -1,0 +1,42 @@
+close all; clc; clear;
+%% T3 - SCon II - Lista 7 - Exercício 3 Dorf 12a
+% Cesar Augusto Mendes Cordeiro da Silva    211270121
+
+% CP3.8) Consider the state variable model with parameter K given by
+
+% A = [0, 1, 0; 0, 0, 1; -2, -K, -2];
+
+% Plot the characteristic values of the system as a function of K in
+% the range 0 ≤ K ≤ 100. Determine that range of K for which all the
+% characteristic values he in the left half-plane.
+K = 0:1:100;
+
+estabilidade = (zeros(1,length(K)));
+
+figure(1)
+title("Estabilidade para diferente valores de K");
+ylabel("i");
+xlabel("R");
+
+x1 = [-10, -10];
+y1 = [0, 0];
+line(x1, y1, 'Color', 'k', 'LineWidth', 1.5); % Hline y = 0
+
+y2 = [-10, -10];
+x2 = [0, 0];
+line(x2, y2, 'Color', 'k', 'LineWidth', 1.5); % Vline x = 0
+
+for ii = 1:length(K)
+ A = [0, 1, 0; 0, 0, 1; -2, -K(ii), -2];
+ B = [0; 0; 1];
+ C = [1, 0, 0];
+ D = 0;
+ sys = ss(A,B,C,D);
+ polos = eig(A);
+ % estabilidade(ii) = isstable(sys); % Verifica a estabilidade absoluta do sistema, e a armazena para diferentes valores de K.
+ 
+ plot(polos, LineStyle="none", Marker="x")
+ % pzmap(sys);
+ grid;
+ hold on;
+end
