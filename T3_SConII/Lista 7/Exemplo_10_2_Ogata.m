@@ -1,5 +1,5 @@
 close all; clc; clear;
-%% T3 - SCon II - Lista 7 - Exercício 1 Ogata
+%% T3 - SCon II - Lista 7 - Exercício 1 Ogata 5a
 % Cesar Augusto Mendes Cordeiro da Silva    211270121
 
 % Exemplo 10.2) Considere o mesmo sistema que foi considerado no Exemplo 

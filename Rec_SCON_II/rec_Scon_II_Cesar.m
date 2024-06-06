@@ -1,5 +1,5 @@
 close all; clc; clear all;
-%% Ogata B.9.10
+%% Ogata B.9.10 5a
 num1 = [10.4 47 160];
 den1 = [1 14 56 160];
 
