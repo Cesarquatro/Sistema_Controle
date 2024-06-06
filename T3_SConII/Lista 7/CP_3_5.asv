@@ -1,0 +1,20 @@
+close all; clc; clear;
+%% T3 - SCon II - Lista 7 - Exercício 3 Dorf 12a
+% Cesar Augusto Mendes Cordeiro da Silva    211270121
+
+% CP3.4) Consider the two systems:
+A1 = [0, 1, 0; 0, 0, 1; -4, -5, -8];
+B1 = [0; 0; 4];
+C1 = [1, 0, 0];
+D1 = 0;
+
+% and
+A2 = [ 0.5,  0.5, 0.7071;
+      -0.5, -0.5, 0.7071;
+      -6.3640, -0.7071, -8];
+B2 = [0; 0; 4];
+C2 = [0.7071, -0.7071, 0];
+D2 = 0;
+
+%% (a) Using the tf function, determine the transfer function Y(s)/U(s)
+% for system (1).
