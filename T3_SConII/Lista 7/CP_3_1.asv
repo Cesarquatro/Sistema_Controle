@@ -1,0 +1,13 @@
+close all; clc; clear;
+%% T3 - SCon II - Lista 7 - Exercício 3 Dorf 12a
+% Cesar Augusto Mendes Cordeiro da Silva    211270121
+
+% CP3.1) Determine a state variable representation for the following
+% transfer functions (without feedback) using the SS function:
+%% (a) G(s) = 1 / (s + 10)
+num = 1;
+den = [1, 10];
+
+sys_a = tf(num, den);
+
+
