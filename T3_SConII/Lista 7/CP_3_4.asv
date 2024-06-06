@@ -52,6 +52,9 @@ dt = 10;
 Phi = expm(A*dt);
 
 disp("(c)")
-xf_phi = Phi*x0
+xf_phi = Phi*xf_sim
 
-disp("R: Os resultados simulado e calculado são iguais")
+X10 = x(length(t),:)';
+t10 = 10;
+Phi = expm(A*t10); % Calcula Phi(10) = e^(A*10)
+X10_calc = Phi*X10 
