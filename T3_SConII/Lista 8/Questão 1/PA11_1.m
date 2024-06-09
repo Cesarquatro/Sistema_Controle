@@ -19,7 +19,7 @@ sys = ss(A, B, C, D);
 
 %% b) viabilidade do controle, por meio da controlabilidade do sistema;
 % IV) teste se o posto{rank()} da matriz de ₵{ctrb(A, B)} é igual a 
-% dimessão de A
+% dimesão de A
 if (size(A, 1) == rank(ctrb(A, B)))
     disp("É controlável")
 else
