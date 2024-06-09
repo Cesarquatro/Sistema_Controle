@@ -84,7 +84,7 @@ legend('Saída    (Posição)', 'Entrada (Referência)');
 % Variáveis de estado
 % subplot(3,1,2);
 subplot(3,1,2);
-plot(T, x(:,2), 'Color', '#00BC08', 'LineStyle', ':','LineWidth', 1.5);
+plot(t, x(:,2), 'Color', '#00BC08', 'LineStyle', ':','LineWidth', 1.5);
 grid on;
 title('ω');
 xlabel('t [s]');
@@ -93,7 +93,7 @@ legend('Velocidade');
 
 % subplot(3,1,3);
 subplot(3,1,3);
-plot(T, x(:,3), 'Color', '#BC00B3', 'LineStyle', '--', 'LineWidth', 1.5);
+plot(t, x(:,3), 'Color', '#BC00B3', 'LineStyle', '--', 'LineWidth', 1.5);
 grid on;
 title('i');
 xlabel('t [s]');
