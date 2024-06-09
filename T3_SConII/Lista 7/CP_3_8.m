@@ -9,7 +9,7 @@ close all; clc; clear;
 % Plot the characteristic values of the system as a function of K in
 % the range 0 ≤ K ≤ 100. Determine that range of K for which all the
 % characteristic values he in the left half-plane.
-K = 0:0.01:100;
+K = 0:0.1:100;
 
 estabilidade = (zeros(1,length(K)));
 
