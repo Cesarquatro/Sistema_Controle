@@ -99,7 +99,7 @@ rlocus(Gs_comp);
 
 % XIV) Simulação do sistema
 t = 0:0.01:10; 
-u = 10*ones(1, length(t)); % Entrada degrau 5
+u = 10*ones(1, length(t)); % Entrada degrau 10
 
 [y, T, x] = lsim(ss_comp, u, t); % Simula a resposta do sistema
 

@@ -1,0 +1,14 @@
+close all; clc; clear;
+%% T3 - SCon II - Lista 8 - Exercício PA11.7 Dorf
+% Cesar Augusto Mendes Cordeiro da Silva    211270121
+
+% PA11.7) O Radisson Diamond usa flutuadores e estabilizadores para amorte-
+% cer o efeito das ondas que batem no navio, como mostrado na figura PA11.7
+% (a). O diagrama de blocos do sistema de controle rolagem do navio é mos-
+% trado na Figura PA11.7 (b) abaixo. Determine de realimentação K₂ e K₃ de
+% modo que as raízes características sejam S = -15 e S = -2 ± j2. Represen-
+% te graficamente a saída de rolagem Φ(t) para a perturbação em degrau
+% unitário.
+% Ao invés de perturbar com degrau, use as funções degrau para gerar um
+% perturbação do tipo impulso, com amplitude de 10. Gere Φ(t) apenas no
+% simulink.
