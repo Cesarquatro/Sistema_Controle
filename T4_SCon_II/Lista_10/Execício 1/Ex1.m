@@ -86,35 +86,35 @@ sys_gco = ss(A_gco, B_gco, C_gco, D_gco); % Espaço de estadoso CO
 
 eig(A_gco) % Estável
 
-% XII) Simulção
-t = 0:0.01:10;
-u = ones(length(t),1);
-
-[y, t, xgco] = lsim(sys_gco, u, t);
-
-% Plotagem dos resultados
-figure;
-
-% Subplot para x1
-subplot(3,1,1);
-plot(t, xgco(:, 1));
-title('Estado x_1');
-xlabel('Tempo (s)');
-ylabel('x_1(t)');
-grid on;
-
-% Subplot para x2
-subplot(3,1,2);
-plot(t, xgco(:, 2));
-title('Estado x_2');
-xlabel('Tempo (s)');
-ylabel('x_2(t)');
-grid on;
-
-% Subplot para a saída
-subplot(3,1,3);
-plot(t, y);
-title('Resposta do sistema controlado-observado');
-xlabel('Tempo (s)');
-ylabel('Saída y(t)');
-grid on;
+% % XII) Simulção
+% t = 0:0.01:10;
+% u = ones(length(t),1);
+% 
+% [y, t, xgco] = lsim(sys_gco, u, t);
+% 
+% % Plotagem dos resultados
+% figure;
+% 
+% % Subplot para x1
+% subplot(3,1,1);
+% plot(t, xgco(:, 1));
+% title('Estado x_1');
+% xlabel('Tempo (s)');
+% ylabel('x_1(t)');
+% grid on;
+% 
+% % Subplot para x2
+% subplot(3,1,2);
+% plot(t, xgco(:, 2));
+% title('Estado x_2');
+% xlabel('Tempo (s)');
+% ylabel('x_2(t)');
+% grid on;
+% 
+% % Subplot para a saída
+% subplot(3,1,3);
+% plot(t, y);
+% title('Resposta do sistema controlado-observado');
+% xlabel('Tempo (s)');
+% ylabel('Saída y(t)');
+% grid on;
